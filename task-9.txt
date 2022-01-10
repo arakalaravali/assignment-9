@@ -1,0 +1,217 @@
+9Q)Solving problems using array functions on rest countries data.
+a)Get all the countries from Asia continent /region using Filter function
+CODE/ANS:
+var xhr = new XMLHttpRequest();
+
+xhr.open("GET", "https://restcountries.com/v3.1/all");
+
+xhr.onload = function () {
+
+  if (xhr.status >= 200 && xhr.status < 300) {
+    let countries = JSON.parse(this.response);
+
+    let filtered = countries.filter(function (country) {
+      return country.currencies?.hasOwnProperty('USD')
+    });
+    console.log(filtered)
+ 
+    filtered.map(country => {
+      console.log('country name', country.name.asia)
+    })
+        // })
+  }
+};
+xhr.send()
+
+OUTPUT:-
+:35 (20) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]0: {name: {…}, tld: Array(1), cca2: 'TC', ccn3: '796', cca3: 'TCA', …}1: {name: {…}, tld: Array(1), cca2: 'EC', ccn3: '218', cca3: 'ECU', …}2: {name: {…}, tld: Array(1), cca2: 'VI', ccn3: '850', cca3: 'VIR', …}3: {name: {…}, tld: Array(1), cca2: 'MP', ccn3: '580', cca3: 'MNP', …}4: {name: {…}, tld: Array(1), cca2: 'PW', ccn3: '585', cca3: 'PLW', …}5: {name: {…}, tld: Array(1), cca2: 'KH', ccn3: '116', cca3: 'KHM', …}6: {name: {…}, tld: Array(1), cca2: 'GU', ccn3: '316', cca3: 'GUM', …}7: {name: {…}, tld: Array(1), cca2: 'SV', ccn3: '222', cca3: 'SLV', …}8: {name: {…}, tld: Array(1), cca2: 'PR', ccn3: '630', cca3: 'PRI', …}9: {name: {…}, tld: Array(1), cca2: 'VG', ccn3: '092', cca3: 'VGB', …}10: {name: {…}, tld: Array(1), cca2: 'TL', ccn3: '626', cca3: 'TLS', …}11: {name: {…}, tld: Array(1), cca2: 'FM', ccn3: '583', cca3: 'FSM', …}12: {name: {…}, tld: Array(1), cca2: 'UM', ccn3: '581', cca3: 'UMI', …}13: {name: {…}, tld: Array(1), cca2: 'AS', ccn3: '016', cca3: 'ASM', …}14: {name: {…}, tld: Array(1), cca2: 'IO', ccn3: '086', cca3: 'IOT', …}15: {name: {…}, tld: Array(1), cca2: 'PA', ccn3: '591', cca3: 'PAN', …}16: {name: {…}, tld: Array(2), cca2: 'BQ', ccn3: '535', cca3: 'BES', …}17: {name: {…}, tld: Array(1), cca2: 'BS', ccn3: '044', cca3: 'BHS', …}18: {name: {…}, tld: Array(1), cca2: 'US', ccn3: '840', cca3: 'USA', …}19: {name: {…}, tld: Array(1), cca2: 'MH', ccn3: '584', cca3: 'MHL', …}length: 20[[Prototype]]: Array(0)
+9:36 AM 10-Jan-229:36 AM 10-Jan-22
+
+b)Get all the countries with a population of less than 2 lakhs using Filter function
+CODE/ANS:-
+   var xhr = new XMLHttpRequest();
+xhr.open("GET", "https://restcountries.com/v3.1/all");
+
+xhr.onload = function () {
+  if (xhr.status >= 200 && xhr.status < 300) {
+    let countries = JSON.parse(this.response);
+ let population = countries.filter(country => country.population < 200000)
+  console.log('countries with less that 2lakh population', population)
+
+  population.map(country => {
+    console.log(country.name.common)
+  })
+  }
+};
+xhr.send()
+OUTPUT:-
+countries with less that 2lakh population (62) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+2script.js:66 Bouvet Island
+2script.js:66 Nauru
+2script.js:66 Turks and Caicos Islands
+2script.js:66 Sint Maarten
+2script.js:66 Saint Vincent and the Grenadines
+2script.js:66 Christmas Island
+2script.js:66 Aruba
+2script.js:66 French Southern and Antarctic Lands
+2script.js:66 Tonga
+2script.js:66 South Georgia
+2script.js:66 Saint Barthélemy
+2script.js:66 Cook Islands
+2script.js:66 Jersey
+2script.js:66 Monaco
+2script.js:66 Wallis and Futuna
+2script.js:66 Antigua and Barbuda
+2script.js:66 Saint Kitts and Nevis
+2script.js:66 Samoa
+2script.js:66 Liechtenstein
+2script.js:66 Faroe Islands
+2script.js:66 United States Virgin Islands
+2script.js:66 Montserrat
+2script.js:66 Northern Mariana Islands
+2script.js:66 Saint Lucia
+2script.js:66 Seychelles
+2script.js:66 Saint Pierre and Miquelon
+2script.js:66 Niue
+2script.js:66 Palau
+2script.js:66 Åland Islands
+2script.js:66 Curaçao
+2script.js:66 Guernsey
+2script.js:66 Dominica
+2script.js:66 Tokelau
+2script.js:66 Guam
+2script.js:66 Bermuda
+2script.js:66 British Virgin Islands
+2script.js:66 San Marino
+2script.js:66 Gibraltar
+2script.js:66 Tuvalu
+2script.js:66 Norfolk Island
+2script.js:66 Falkland Islands
+2script.js:66 Micronesia
+2script.js:66 Isle of Man
+2script.js:66 Vatican City
+2script.js:66 United States Minor Outlying Islands
+2script.js:66 Svalbard and Jan Mayen
+2script.js:66 American Samoa
+2script.js:66 Greenland
+2script.js:66 British Indian Ocean Territory
+2script.js:66 Antarctica
+2script.js:66 Grenada
+2script.js:66 Heard Island and McDonald Islands
+2script.js:66 Saint Martin
+2script.js:66 Caribbean Netherlands
+2script.js:66 Cocos (Keeling) Islands
+2script.js:66 Saint Helena, Ascension and Tristan da Cunha
+2script.js:66 Cayman Islands
+2script.js:66 Kiribati
+2script.js:66 Andorra
+2script.js:66 Pitcairn Islands
+2script.js:66 Anguilla
+2script.js:66 Marshall Islands
+
+9c)Print the following details name, capital, flag using forEach function
+CODE/ANS:-
+  var xhr = new XMLHttpRequest();
+xhr.open("GET", "https://restcountries.com/v3.1/all");
+
+xhr.onload = function () {
+  if (xhr.status >= 200 && xhr.status < 300) {
+    let countries = JSON.parse(this.response);
+
+    let filtered = countries.filter(function (country) {
+    return country.currencies?.hasOwnProperty('USD')
+    });
+    console.log(filtered) 
+    filtered.map(country => {
+      console.log(country?.capital && country?.capital[0])
+    
+    })
+  }
+};
+xhr.send()
+OUTPUT:-
+(20) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+2script.js:96 Cockburn Town
+2script.js:96 Quito
+2script.js:96 Charlotte Amalie
+2script.js:96 Saipan
+2script.js:96 Ngerulmud
+2script.js:96 Phnom Penh
+2script.js:96 Hagåtña
+2script.js:96 San Salvador
+2script.js:96 San Juan
+2script.js:96 Road Town
+2script.js:96 Dili
+2script.js:96 Palikir
+2script.js:96 undefined
+2script.js:96 Pago Pago
+2script.js:96 Diego Garcia
+2script.js:96 Panama City
+2script.js:96 Kralendijk
+2script.js:96 Nassau
+2script.js:96 Washington, D.C.
+2script.js:96 Majuro
+
+9d)Print the total population of countries using reduce functionCODE/ANS:-
+CODE/ANS:-
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "https://restcountries.com/v3.1/all");
+
+xhr.onload = function () {
+  if (xhr.status >= 200 && xhr.status < 300) {
+    let countries = JSON.parse(this.response);
+let totalpopulation=countries.reduce((acc,curr)=>
+   acc+curr.population,0);
+console.log(totalpopulation);
+  }
+};
+xhr.send()
+
+  OUTPUT:-
+
+2script.js:34 7798590363
+
+9)e)Print the country which uses US Dollars as currency.
+
+CODE/ANS:-
+
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "https://restcountries.com/v3.1/all");
+
+xhr.onload = function () {
+  if (xhr.status >= 200 && xhr.status < 300) {
+    let countries = JSON.parse(this.response);
+
+    let filtered = countries.filter(function (country) {
+      return country.currencies?.hasOwnProperty('USD')
+    });
+    console.log(filtered)
+ 
+    filtered.map(country => {
+      console.log('country name', country.name.common)
+    })
+  }
+};
+xhr.send()
+
+OUTPUT:-
+country name Turks and Caicos Islands
+2script.js:125 country name Ecuador
+2script.js:125 country name United States Virgin Islands
+2script.js:125 country name Northern Mariana Islands
+2script.js:125 country name Palau
+2script.js:125 country name Cambodia
+2script.js:125 country name Guam
+2script.js:125 country name El Salvador
+2script.js:125 country name Puerto Rico
+2script.js:125 country name British Virgin Islands
+2script.js:125 country name Timor-Leste
+2script.js:125 country name Micronesia
+2script.js:125 country name United States Minor Outlying Islands
+2script.js:125 country name American Samoa
+2script.js:125 country name British Indian Ocean Territory
+2script.js:125 country name Panama
+2script.js:125 country name Caribbean Netherlands
+2script.js:125 country name Bahamas
+2script.js:125 country name United States
+2script.js:125 country name Marshall Islands
